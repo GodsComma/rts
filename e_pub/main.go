@@ -1,7 +1,6 @@
 package main
 
 import (
-	"epub/internal/app"
 	"epub/internal/mq"
 	"fmt"
 	"strconv"
@@ -31,10 +30,7 @@ func publish_msg(queue_name string, count int, ch *amqp091.Channel) {
 func main() {
 	queue_name := "push_pop"
 	rabbitMq := mq.InitMq()
-	epub := app.Epub{
-		Mq: rabbitMq,
-	}
-	ch, err := epub.DeclareandBindQueue(queue_name)
+	ch, err := rabbitMq.DeclareandBindQueue(queue_name)
 	if err != nil {
 		fmt.Println("Unable to create a new queue")
 	}
