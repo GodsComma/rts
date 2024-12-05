@@ -20,6 +20,7 @@ func fisherYates(data []DataStruct) []DataStruct {
 	if n <= 2 {
 		// Buganese
 	}
+	return data
 }
 
 func createFakeMessages(total_size int) []DataStruct {
